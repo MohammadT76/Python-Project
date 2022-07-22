@@ -20,3 +20,9 @@ def sum_k_smallest_v2 (input_list , k):
     return sum(sorted(input_list)[:k])
 
 print(sum_k_smallest_v2(input_list , k))
+
+
+
+# for more information you can see these links : 
+# https://stackoverflow.com/questions/33623184/fastest-method-of-getting-k-smallest-numbers-in-unsorted-list-of-size-n-in-pytho
+# https://docs.python.org/2/library/heapq.html
