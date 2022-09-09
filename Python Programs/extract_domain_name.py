@@ -19,6 +19,6 @@ s = 'www.xakep.ru'
 # obj2 = re.findall('://www.([\w\-\.]+)',s)
 # print(obj2)
 
-pattern = '([^w].*\.)\w{1,3}?.\w+'
+pattern = '(www\.)?\w{1,3}?.\w+'
 print(re.findall(pattern,s))
 
