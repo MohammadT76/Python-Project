@@ -1,0 +1,5 @@
+blog_env
+mysite/blog/__pycache__
+mysite/blog/migrations/__pycache__
+mysite/mysite/__pycache__
+mysite/db.sqlite3
