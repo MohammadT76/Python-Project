@@ -5,6 +5,19 @@ from django.contrib.auth.models import User
 # for slug field
 from django.utils.text import slugify
 
+# create custom manager
+# this manager return all objects from Post model that object's status is PUBLISH
+class PublishManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status = Post.Status.PUBLISH)
+
+# create another custom manager
+# this manager return all objects from Post model that object's status is DRAFT
+class DraftManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status = Post.Status.DRAFT)
+
+
 class Post(models.Model):
     # usefull link for Model field : 
     # https://docs.djangoproject.com/en/4.1/ref/models/fields/
@@ -34,6 +47,19 @@ class Post(models.Model):
         DRAFT = 'D','Draft'
         PUBLISH = 'P','Publish'
     status = models.CharField(max_length=1,choices=Status.choices,default=Status.DRAFT)
+    
+    ############################
+    # define default manager and custom manager
+    # default manager
+    objects = models.Manager()
+    # custom manager
+    published_posts = PublishManager()
+    draft_posts = DraftManager()
+    
+    # Note : You can use the Meta attribute default_manager_name
+    #        to specify a different default manager
+    
+    ############################
     
     class Meta:
         ordering = [
