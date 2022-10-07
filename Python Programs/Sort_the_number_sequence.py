@@ -7,8 +7,8 @@
 def sort_sequence(sequence):
     a = ''.join(str(num) for num in sequence)
     b = a.split('0')
+    c = [sorted(x) for x in b]
     print(b)
-
 
 a = [3, 2, 1, 0, 5, 6, 4, 0, 1, 5, 3, 0, 4, 2, 8, 0]
 sort_sequence(a)
