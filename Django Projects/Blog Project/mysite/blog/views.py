@@ -6,10 +6,10 @@ from django.http import Http404
 def all_published_post(request):
     posts = Post.published_posts.all()
     return render(request,
-                  'blog/post/post_list.xhtml',
+                  'blog/post/post_list.html',
                   {'posts':posts})
 
-def detail_published_post(request):
+def detail_published_post(request,id):
     # try:
     #     post = Post.published_posts.filter(id=id)
     # except post.DoesNotExist:
@@ -19,5 +19,5 @@ def detail_published_post(request):
                              id=id,
                              status=Post.Status.PUBLISH)
     return render(request,
-                  'blog/post/post_detail.xhtml',
+                  'blog/post/post_detail.html',
                   {'post':post})

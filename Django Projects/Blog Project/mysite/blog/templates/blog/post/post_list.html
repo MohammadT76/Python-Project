@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    All Blog Posts
+{% endblock %}
+
+{% block content %}
+    <h1>Posts</h1>
+    {% for post in posts %}
+        <h2>
+        <a href="{% url 'BLOG:post_detail' post.id %}">
+        {{ post.title }}
+        </a>
+        </h2>
+        <p class="date">
+        Published {{ post.published }} by {{ post.author }}
+        </p>
+        {{ post.body|truncatewords:10|linebreaks }}
+    {% endfor %}
+{% endblock %}
+
+
+
